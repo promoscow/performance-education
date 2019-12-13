@@ -1,7 +1,5 @@
 package ru.xpendence.z_homework.crud;
 
-import java.util.Date;
-
 /**
  * Author: Vyacheslav Chernyshov
  * Date: 12.12.19
@@ -12,9 +10,9 @@ public class Person {
 
     private String name;
     private Sex sex;
-    private Date birthDay;
+    private String birthDay;
 
-    public Person(String name, Sex sex, Date birthDay) {
+    public Person(String name, Sex sex, String birthDay) {
         this.name = name;
         this.sex = sex;
         this.birthDay = birthDay;
@@ -36,11 +34,11 @@ public class Person {
         this.sex = sex;
     }
 
-    public Date getBirthDay() {
+    public String getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(Date birthDay) {
+    public void setBirthDay(String birthDay) {
         this.birthDay = birthDay;
     }
 

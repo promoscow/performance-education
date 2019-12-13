@@ -17,5 +17,13 @@ public class Solution_2 {
 
     public static void main(String[] args) {
 
+        double course = 1.1;
+
+        System.out.println(convertEurToUsd(100, course));
+        System.out.println(convertEurToUsd(200, course));
+    }
+
+    private static double convertEurToUsd(int e, double exchange) {
+        return e * exchange;
     }
 }

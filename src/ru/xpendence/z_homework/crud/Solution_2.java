@@ -9,7 +9,7 @@ package ru.xpendence.z_homework.crud;
 
 /* CRUD 2
 CrUD Batch - multiple Creation, Updates, Deletion
-!!!РЕКОМЕНДУЕТСЯ выполнить level17.lesson10.bonus01 перед этой задачей!!!
+!!!РЕКОМЕНДУЕТСЯ выполнить предыдущее задание перед этой задачей!!!
 Программа запускается с одним из следующих наборов параметров:
 -c name1 sex1 bd1 name2 sex2 bd2 ...
 -u id1 name1 sex1 bd1 id2 name2 sex2 bd2 ...

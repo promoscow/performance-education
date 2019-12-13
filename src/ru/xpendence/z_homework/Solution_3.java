@@ -1,6 +1,8 @@
 package ru.xpendence.z_homework;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -32,11 +34,5 @@ public class Solution_3 {
         Scanner scanner = new Scanner(System.in);
         BufferedReader reader = new BufferedReader(new FileReader(scanner.nextLine()));
 
-        reader.lines()
-                .map(Integer::parseInt)
-                .filter(e -> e % 2 == 0)
-                .sorted().forEach(System.out::println);
-
-        reader.close();
     }
 }

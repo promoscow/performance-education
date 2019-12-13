@@ -19,13 +19,22 @@ public class Solution_4 {
 
         Scanner scanner = new Scanner(System.in);
 
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
+        int[] a = new int[5];
+        for (int i = 0; i < 5; i++) {
+            a[i] = scanner.nextInt();
+        }
 
-        printMin(a, b);
+        int i = printMin(a);
+        System.out.println(i);
     }
 
-    private static void printMin(int a, int b) {
-        System.out.println(a < b ? a : b);
+    private static int printMin(int[] a) {
+        int min = a[0];
+        for (int i = 1; i < 5; i++) {
+            if (a[i] < min) {
+                min = a[i];
+            }
+        }
+        return min;
     }
 }

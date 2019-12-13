@@ -25,7 +25,11 @@ public class Solution_3 {
     }
 
     private static void printMainInfo(Object o) {
-
+        if (o instanceof Movable) {
+            ((Movable) o).move();
+        } else if (o instanceof Drawable) {
+            ((Drawable) o).draw();
+        }
     }
 
     static interface Movable {

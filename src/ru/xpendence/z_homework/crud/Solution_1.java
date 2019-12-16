@@ -1,5 +1,12 @@
 package ru.xpendence.z_homework.crud;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
 /**
  * Author: Vyacheslav Chernyshov
  * Date: 12.12.19
@@ -31,7 +38,75 @@ id соответствует индексу в списке
 */
 public class Solution_1 {
 
+    private static List<Person> allPeople = new ArrayList<>();
+
     public static void main(String[] args) {
 
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+
+            String line = scanner.nextLine();
+            if (line.isEmpty()) {
+                System.out.println("Не получены данные");
+                continue;
+            }
+
+            if (line.equals("exit")) return;
+
+            List<String> data = new ArrayList<>();
+
+            StringTokenizer stringTokenizer = new StringTokenizer(line, " ");
+            while (stringTokenizer.hasMoreTokens()) {
+                data.add(stringTokenizer.nextToken());
+            }
+
+            switch (data.get(0)) {
+                case "-c":
+                    create(data);
+                    break;
+                case "-i":
+                    get(data);
+                    break;
+            }
+        }
+    }
+
+    private static void get(List<String> data) {
+        System.out.println(allPeople.get(Integer.parseInt(data.get(1))));
+    }
+
+    private static void create(List<String> data) {
+        validateDataSize(data);
+        Person person;
+        try {
+            person = new Person(data.get(1), getSex(data), getBirthDay(data.get(3)));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Данные не валидны: " + e.getMessage());
+            return;
+        }
+        allPeople.add(person);
+    }
+
+    private static void validateDataSize(List<String> data) {
+        if (data.size() != 4) {
+            System.out.println(String.format("Данные не валидны, их %s, а надо 4.", data.size()));
+        }
+    }
+
+    private static LocalDate getBirthDay(String date) {
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return LocalDate.parse(date, dateFormat);
+    }
+
+    private static Sex getSex(List<String> data) {
+        if (data.get(2).equals("m")) {
+            return Sex.MALE;
+        } else if (data.get(2).equals("f")) {
+            return Sex.FEMALE;
+        } else {
+            throw new IllegalArgumentException("Нет такого пола: " + data.get(2));
+        }
     }
 }

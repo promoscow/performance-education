@@ -14,15 +14,17 @@ TestThread должен выводить в консоль "My first thread".
 public class Solution_1 {
 
     public static void main(String[] args) {
-//        TestThread testThread = new TestThread();
-//        new Thread(testThread).start();
+
+        TestThread testThread = new TestThread();
+        Thread thread = new Thread(testThread);
+        thread.start();
     }
 
     public static class TestThread implements Runnable {
 
         @Override
         public void run() {
-            System.out.println("My first thread");
+            System.out.println("test thread");
         }
     }
 }

@@ -1,0 +1,6 @@
+1. Создать классы Horse (name, speed, position) и Hippodrome (в котором мы создадим лошадей и запустим Thread).
+2. Создать класс HorseRunner implements Runnable.
+3. В ипподроме создать трёх лошадей с именами. Передать лошадей в HorseRunner.
+
+4. Написать всё остальное.
+

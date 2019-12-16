@@ -1,0 +1,32 @@
+package ru.xpendence.f_multithreading;
+
+/**
+ * Author: Vyacheslav Chernyshov
+ * Date: 15.12.19
+ * Time: 12:49
+ * e-mail: slava_rossii@list.ru
+ */
+
+/* My second thread
+1. Создать public static класс TestThread унаследовавшись от класса Thread.
+2. Создать статик блок внутри TestThread, который выводит в консоль "it's static block inside TestThread".
+3. Метод run должен выводить в консоль "it's run method".
+*/
+public class Solution_2 {
+
+    public static void main(String[] args) {
+        TestThread thread = new TestThread();
+        thread.start();
+    }
+
+    public static class TestThread extends Thread {
+        static {
+            System.out.println("it's static block inside TestThread");
+        }
+
+        @Override
+        public void run() {
+            System.out.println("it's run method");
+        }
+    }
+}
